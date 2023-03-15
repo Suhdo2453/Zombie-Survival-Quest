@@ -1,11 +1,16 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Timeline;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
     public PlayerStateMachine StateMachine { get; private set; }
+    
+    public PlayerIdleState IdleState { get; private set; }
+
+    [SerializeField] private PlayerData PlayerData;
 
     public Rigidbody2D RB;
     public Animator Anim;
@@ -19,6 +24,8 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         StateMachine = new PlayerStateMachine();
+
+        IdleState = new PlayerIdleState(this, StateMachine, PlayerData, "idleState");
     }
 
     private void Start()
@@ -28,7 +35,7 @@ public class Player : MonoBehaviour
         RB = GetComponent<Rigidbody2D>();
         FacingDirection = 1;
         
-       // StateMachine.Initialize(IdleState);
+        StateMachine.Initialize(IdleState);
     }
 
     private void Update()
@@ -40,5 +47,11 @@ public class Player : MonoBehaviour
     private void FixedUpdate()
     {
         StateMachine.currentState.PhysicUpdate();
+    }
+
+    public void SetVelocityZero()
+    {
+        RB.velocity = Vector2.zero;
+        CurrentVelocity = Vector2.zero;
     }
 }

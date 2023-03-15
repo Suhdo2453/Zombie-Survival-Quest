@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     public PlayerStateMachine StateMachine { get; private set; }
     
     public PlayerIdleState IdleState { get; private set; }
+    public PlayerMoveState MoveState { get; private set; }
 
     [SerializeField] private PlayerData PlayerData;
 
@@ -26,6 +27,7 @@ public class Player : MonoBehaviour
         StateMachine = new PlayerStateMachine();
 
         IdleState = new PlayerIdleState(this, StateMachine, PlayerData, "idleState");
+        MoveState = new PlayerMoveState(this, StateMachine, PlayerData, "moveState");
     }
 
     private void Start()
@@ -53,5 +55,12 @@ public class Player : MonoBehaviour
     {
         RB.velocity = Vector2.zero;
         CurrentVelocity = Vector2.zero;
+    }
+
+    public void SetVelocity(Vector2 velocity)
+    {
+        workSpaceVector = velocity;
+        RB.velocity = workSpaceVector;
+        CurrentVelocity = workSpaceVector;
     }
 }

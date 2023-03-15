@@ -18,5 +18,9 @@ public class PlayerIdleState : State
     {
         base.LogicUpdate();
         
+        if (player.InputHandler.RawMovementInput != Vector2.zero)
+        {
+            stateMachine.ChangeState(player.MoveState);
+        }
     }
 }

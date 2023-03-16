@@ -11,6 +11,7 @@ public class PlayerMoveState : State
     public override void LogicUpdate()
     {
         base.LogicUpdate();
+        player.CheckIfShouldFlip(player.InputHandler.RawMovementInput);
         player.SetVelocity(playerData.movementSpeed * player.InputHandler.RawMovementInput);
         if (player.InputHandler.RawMovementInput == Vector2.zero)
         {

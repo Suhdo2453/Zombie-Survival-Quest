@@ -7,7 +7,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public PlayerStateMachine StateMachine { get; private set; }
-    
+
     public PlayerIdleState IdleState { get; private set; }
     public PlayerMoveState MoveState { get; private set; }
 
@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
     public Rigidbody2D RB;
     public Animator Anim;
     public InputHandler InputHandler { get; private set; }
-    
+
     public Vector2 CurrentVelocity { get; private set; }
     public int FacingDirection { get; private set; }
 
@@ -36,7 +36,7 @@ public class Player : MonoBehaviour
         InputHandler = GetComponent<InputHandler>();
         RB = GetComponent<Rigidbody2D>();
         FacingDirection = 1;
-        
+
         StateMachine.Initialize(IdleState);
     }
 
@@ -62,5 +62,22 @@ public class Player : MonoBehaviour
         workSpaceVector = velocity;
         RB.velocity = workSpaceVector;
         CurrentVelocity = workSpaceVector;
+    }
+
+    public void CheckIfShouldFlip(Vector2 inputDirection)
+    {
+        if (inputDirection != Vector2.zero && RoundFloat(inputDirection.x) == -FacingDirection)
+            Flip();
+    }
+
+    private void Flip()
+    {
+        FacingDirection *= -1;
+        transform.Rotate(0.0f, 180f, 0.0f);
+    }
+
+    public static int RoundFloat(float num)
+    {
+        return num > 0 ? Mathf.CeilToInt(num) : Mathf.FloorToInt(num);
     }
 }

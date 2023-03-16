@@ -10,6 +10,6 @@ public class InputHandler : MonoBehaviour
     public void OnMoveInput(InputAction.CallbackContext context)
     {
         RawMovementInput = context.ReadValue<Vector2>();
-        Debug.Log(RawMovementInput.normalized);
+        //Debug.Log(RawMovementInput.normalized);
     }
 }

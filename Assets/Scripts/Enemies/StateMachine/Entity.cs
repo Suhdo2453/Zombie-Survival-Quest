@@ -38,5 +38,11 @@ public class Entity : MonoBehaviour
         workspaceVector.Set(FacingDirection * velocity, RB.velocity.y);
         RB.velocity = workspaceVector;
     }
+
+    public virtual void Flip()
+    {
+        FacingDirection *= -1;
+        transform.Rotate(0f, 180f, 0f);
+    }
     
 }

@@ -44,12 +44,12 @@ public class Player : MonoBehaviour
     {
         CurrentVelocity = RB.velocity;
         StateMachine.currentState.LogicUpdate();
-        FacingToMouse();
     }
 
     private void FixedUpdate()
     {
         StateMachine.currentState.PhysicUpdate();
+        FacingToMouse();
     }
 
     public void SetVelocityZero()

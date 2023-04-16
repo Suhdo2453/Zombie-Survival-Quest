@@ -44,6 +44,7 @@ public class Player : MonoBehaviour
     {
         CurrentVelocity = RB.velocity;
         StateMachine.currentState.LogicUpdate();
+        FacingToMouse();
     }
 
     private void FixedUpdate()
@@ -68,6 +69,20 @@ public class Player : MonoBehaviour
     {
         if (inputDirection != Vector2.zero && RoundFloat(inputDirection.x) == -FacingDirection)
             Flip();
+    }
+
+    public void FacingToMouse()
+    {
+        if ((InputHandler.MousePosition.x < transform.position.x)&& FacingDirection==1)
+        {
+            // Lật player sang trái
+            Flip();
+        }
+        else if ((InputHandler.MousePosition.x > transform.position.x)&& FacingDirection==-1)
+        {
+            // Lật player sang phải
+            Flip();
+        }
     }
 
     private void Flip()

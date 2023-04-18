@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,15 +10,13 @@ public class InputHandler : MonoBehaviour
     public Vector2 RawMovementInput { get; private set; }
     public Vector2 MousePosition { get; private set; }
 
+    private void Update()
+    {
+        MousePosition = scenceCamera.ScreenToWorldPoint(Input.mousePosition);
+    }
+
     public void OnMoveInput(InputAction.CallbackContext context)
     {
         RawMovementInput = context.ReadValue<Vector2>();
-        //Debug.Log(RawMovementInput.normalized);
-    }
-
-    public void OnMousePosition(InputAction.CallbackContext context)
-    {
-       Vector3 _MousePosition = context.ReadValue<Vector2>();
-        MousePosition = scenceCamera.ScreenToWorldPoint(new Vector3(_MousePosition.x, _MousePosition.y, 0f));
     }
 }

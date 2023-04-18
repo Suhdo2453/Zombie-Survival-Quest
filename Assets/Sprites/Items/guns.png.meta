@@ -139,7 +139,19 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.39, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
+      outline:
+      - - {x: -4, y: 2}
+        - {x: -4, y: 1}
+        - {x: -5, y: 1}
+        - {x: -5, y: -3}
+        - {x: -3, y: -3}
+        - {x: -3, y: -2}
+        - {x: -2, y: -2}
+        - {x: -2, y: 0}
+        - {x: 4, y: 0}
+        - {x: 4, y: 3}
+        - {x: 3, y: 3}
+        - {x: 3, y: 2}
       physicsShape: []
       tessellationDetail: 0
       bones: []
@@ -559,7 +571,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      guns_3: -595836842
+      guns_16: 655041175
       guns_18: -608497792
       guns_1: -64253550
       guns_11: -861919503
@@ -578,7 +590,7 @@ TextureImporter:
       guns_13: -1397791552
       guns_12: -1578347469
       guns_9: 5871893
-      guns_16: 655041175
+      guns_3: -595836842
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

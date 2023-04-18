@@ -1,44 +1,59 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.Dependencies.NCalc;
 using UnityEngine;
 using UnityEngine.UIElements;
 
 public class Weapon_gun_01 : MonoBehaviour
 {
+    [SerializeField] private Transform firePoint;
+    [SerializeField] private float fireForce;
+    [SerializeField] private float fireRate;
+
+    private float _fireRate;
+
     private Vector2 mousePos;
     private Vector2 aimDir;
     private float aimAngle;
     private Player player;
-    private SpriteRenderer _spriteRenderer;
 
     private void Start()
     {
+        _fireRate = fireRate;
         player = GetComponentInParent<Player>();
-        _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void FixedUpdate()
     {
+        _fireRate -= Time.fixedDeltaTime;
         mousePos = player.InputHandler.MousePosition;
         aimDir = mousePos - (Vector2)transform.position;
         aimAngle = Mathf.Atan2(aimDir.y, aimDir.x) * Mathf.Rad2Deg;
         Quaternion rotation = Quaternion.Euler(new Vector3(0, 0, aimAngle));
         transform.rotation = rotation;
         Flip();
+        Fire();
     }
 
     private void Flip()
     {
-        if (player.FacingDirection == 1)
+        transform.Rotate(player.FacingDirection == -1 ? 180 : 0, 0, 0);
+    }
+
+    // ReSharper disable Unity.PerformanceAnalysis
+    public void Fire()
+    {
+        if (player.InputHandler.AttackInput && _fireRate <= 0)
         {
-            // Lật player sang trái
-            _spriteRenderer.flipY = false;
-        }
-        else if (player.FacingDirection == -1)
-        {
-            // Lật player sang phải
-            _spriteRenderer.flipY = true;
+            _fireRate = fireRate;
+            GameObject projectile = ObjectPooler.current.GetPooledObject();
+            if (projectile == null) return;
+
+            projectile.transform.position = firePoint.position;
+            projectile.transform.rotation = firePoint.rotation;
+            projectile.SetActive(true);
+            projectile.GetComponent<Rigidbody2D>().AddForce(firePoint.right * fireForce, ForceMode2D.Impulse);
         }
     }
 }

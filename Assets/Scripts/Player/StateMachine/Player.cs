@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     public PlayerMoveState MoveState { get; private set; }
 
     [SerializeField] private PlayerData PlayerData;
+    [SerializeField] private Weapon_gun_01 weapon;
 
     public Rigidbody2D RB;
     public Animator Anim;

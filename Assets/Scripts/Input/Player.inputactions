@@ -15,15 +15,6 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "MousePosition",
-                    "type": "Value",
-                    "id": "03b20d98-bb44-4592-bede-43cb29c250c5",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
                     "name": "MoustAttack",
                     "type": "Button",
                     "id": "ee4090dc-f987-4245-af06-400ea97cfca5",
@@ -88,17 +79,6 @@
                     "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
-                },
-                {
-                    "name": "",
-                    "id": "51736fe0-47bc-4ee1-9efe-36ba9a386f70",
-                    "path": "<Mouse>/position",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard",
-                    "action": "MousePosition",
-                    "isComposite": false,
-                    "isPartOfComposite": false
                 },
                 {
                     "name": "",

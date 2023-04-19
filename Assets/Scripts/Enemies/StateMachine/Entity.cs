@@ -12,11 +12,15 @@ public class Entity : MonoBehaviour
     public Rigidbody2D RB { get; private set; }
     public Animator Anim { get; private set; }
 
+    protected bool isDead;
+    
     private Vector2 workspaceVector;
+    [SerializeField]private float currentHealth;
 
     public virtual void Start()
     {
         FacingDirection = 1;
+        currentHealth = entityData.maxHealth;
         RB = GetComponent<Rigidbody2D>();
         Anim =  GetComponent<Animator>();
         
@@ -37,6 +41,15 @@ public class Entity : MonoBehaviour
     {
         workspaceVector.Set(FacingDirection * velocity, RB.velocity.y);
         RB.velocity = workspaceVector;
+    }
+
+    public virtual void Damage(float damage)
+    {
+        currentHealth -= damage;
+        if (currentHealth <= 0)
+        {
+            isDead = true;
+        }
     }
 
     public virtual void Flip()

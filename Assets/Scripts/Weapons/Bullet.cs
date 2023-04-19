@@ -25,4 +25,13 @@ public class Bullet : MonoBehaviour
     {
         CancelInvoke();
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.TryGetComponent<Entity>(out Entity entityComponent))
+        {
+            entityComponent.Damage(12f);
+        }
+        gameObject.SetActive(false);
+    }
 }

@@ -7,47 +7,12 @@ using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 [Serializable]
-public class TypeEnemy
-{
-    public GameObject Enemy;
-
-    public int totalEnemy
-    {
-        get => TotalEnemy;
-        private set => TotalEnemy = value;
-    }
-
-    [SerializeField] private int TotalEnemy;
-
-    public void DecreaseTotalEnemy()
-    {
-        totalEnemy--;
-    }
-}
-
-[Serializable]
 public class Wave
 {
-    public string WaveName;
-    public TypeEnemy[] typeEnemies;
+    public string waveName;
+    public GameObject[] prefab;
     public float spawnInterval;
     public int timeToChangeWave;
-
-    public bool canSpawn = true;
-
-    public void CheckCanSpawn()
-    {
-        foreach (TypeEnemy type in typeEnemies)
-        {
-            if (type.totalEnemy > 0)
-            {
-                canSpawn = true;
-                return;
-            }
-        }
-
-        canSpawn = false;
-    }
 }
 
 public class WaveSystem : MonoBehaviour
@@ -69,19 +34,13 @@ public class WaveSystem : MonoBehaviour
 
     private void SpawnWave()
     {
-        if (currentWave.canSpawn && nextSpawnTime < Time.time)
+        if (nextSpawnTime < Time.time)
         {
-            TypeEnemy typeEnemy = currentWave.typeEnemies[Random.Range(0, currentWave.typeEnemies.Length)];
-            GameObject randomEnemy = typeEnemy.Enemy;
-            if (typeEnemy.totalEnemy > 0)
-            {
-                GameObject obj = ObjectPooler.Instance.GetPooledObject(randomEnemy);
-                obj.SetActive(true);
-                obj.transform.position = SpawnPos();
-                nextSpawnTime = Time.time + currentWave.spawnInterval;
-                typeEnemy.DecreaseTotalEnemy();
-                currentWave.CheckCanSpawn();
-            }
+            GameObject randomEnemy = currentWave.prefab[Random.Range(0, currentWave.prefab.Length)];
+            GameObject obj = ObjectPooler.Instance.GetPooledObject(randomEnemy);
+            obj.SetActive(true);
+            obj.transform.position = SpawnPos();
+            nextSpawnTime = Time.time + currentWave.spawnInterval;
         }
     }
 
@@ -96,7 +55,7 @@ public class WaveSystem : MonoBehaviour
 
     private void NextWave()
     {
-        if (Mathf.FloorToInt(GameManager.Instance.currentTime).Equals(currentWave.timeToChangeWave) && !currentWave.canSpawn)
+        if (Mathf.FloorToInt(GameManager.Instance.currentTime).Equals(currentWave.timeToChangeWave))
         {
             currentWaveIndex++;
         }

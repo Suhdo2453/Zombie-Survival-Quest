@@ -20,7 +20,6 @@ public class Entity : MonoBehaviour
     public virtual void Start()
     {
         FacingDirection = 1;
-        currentHealth = entityData.maxHealth;
         RB = GetComponent<Rigidbody2D>();
         Anim =  GetComponent<Animator>();
         
@@ -35,6 +34,13 @@ public class Entity : MonoBehaviour
     public virtual void FixedUpdate()
     {
         StateMachine.currentState.PhysicsUpdate();
+    }
+
+    public virtual void OnEnable()
+    {
+        StateMachine?.currentState.Enable();
+        currentHealth = entityData.maxHealth;
+        isDead = false;
     }
 
     public virtual void SetVelocity(float velocity)

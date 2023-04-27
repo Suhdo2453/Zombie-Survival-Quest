@@ -7080,7 +7080,7 @@ Tilemap:
       - {fileID: 1435926568, guid: fc86db6cf1a67c94a995d67ed4bcb6bb, type: 3}
       - {fileID: -868958844, guid: fc86db6cf1a67c94a995d67ed4bcb6bb, type: 3}
       - {fileID: -374257528, guid: fc86db6cf1a67c94a995d67ed4bcb6bb, type: 3}
-      m_AnimationSpeed: 1.5000001
+      m_AnimationSpeed: 1.5
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: -5, y: -9, z: 0}
@@ -7120,7 +7120,7 @@ Tilemap:
       - {fileID: 1435926568, guid: fc86db6cf1a67c94a995d67ed4bcb6bb, type: 3}
       - {fileID: -868958844, guid: fc86db6cf1a67c94a995d67ed4bcb6bb, type: 3}
       - {fileID: -374257528, guid: fc86db6cf1a67c94a995d67ed4bcb6bb, type: 3}
-      m_AnimationSpeed: 1.5000001
+      m_AnimationSpeed: 1.5
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: -5, y: -7, z: 0}
@@ -7150,7 +7150,7 @@ Tilemap:
       - {fileID: -1899706900, guid: fc86db6cf1a67c94a995d67ed4bcb6bb, type: 3}
       - {fileID: 416547856, guid: fc86db6cf1a67c94a995d67ed4bcb6bb, type: 3}
       - {fileID: -392259977, guid: fc86db6cf1a67c94a995d67ed4bcb6bb, type: 3}
-      m_AnimationSpeed: 1.5000001
+      m_AnimationSpeed: 1.5
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: -9, y: -5, z: 0}
@@ -7230,7 +7230,7 @@ Tilemap:
       - {fileID: -1899706900, guid: fc86db6cf1a67c94a995d67ed4bcb6bb, type: 3}
       - {fileID: 416547856, guid: fc86db6cf1a67c94a995d67ed4bcb6bb, type: 3}
       - {fileID: -392259977, guid: fc86db6cf1a67c94a995d67ed4bcb6bb, type: 3}
-      m_AnimationSpeed: 1.5
+      m_AnimationSpeed: 1.5000001
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: -9, y: 3, z: 0}
@@ -7320,7 +7320,7 @@ Tilemap:
       - {fileID: 1435926568, guid: fc86db6cf1a67c94a995d67ed4bcb6bb, type: 3}
       - {fileID: -868958844, guid: fc86db6cf1a67c94a995d67ed4bcb6bb, type: 3}
       - {fileID: -374257528, guid: fc86db6cf1a67c94a995d67ed4bcb6bb, type: 3}
-      m_AnimationSpeed: 1.5
+      m_AnimationSpeed: 1.5000001
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: -5, y: 7, z: 0}
@@ -7330,7 +7330,7 @@ Tilemap:
       - {fileID: -1899706900, guid: fc86db6cf1a67c94a995d67ed4bcb6bb, type: 3}
       - {fileID: 416547856, guid: fc86db6cf1a67c94a995d67ed4bcb6bb, type: 3}
       - {fileID: -392259977, guid: fc86db6cf1a67c94a995d67ed4bcb6bb, type: 3}
-      m_AnimationSpeed: 1.5000001
+      m_AnimationSpeed: 1.5
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: -9, y: 8, z: 0}
@@ -8300,15 +8300,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waves:
   - waveName: 
-    prefab: []
+    prefab:
+    - {fileID: 6250972074332605940, guid: ead5c0d0c121577449d4ff337493e192, type: 3}
     spawnInterval: 1
     timeToChangeWave: 590
   - waveName: 
-    prefab: []
+    prefab:
+    - {fileID: 6250972074332605940, guid: ead5c0d0c121577449d4ff337493e192, type: 3}
     spawnInterval: 3
     timeToChangeWave: 570
   - waveName: 
-    prefab: []
+    prefab:
+    - {fileID: 6250972074332605940, guid: ead5c0d0c121577449d4ff337493e192, type: 3}
     spawnInterval: 6
     timeToChangeWave: 0
   playerPos: {fileID: 1539350045}
@@ -8925,9 +8928,5 @@ PrefabInstance:
       propertyPath: m_Name
       value: goblin
       objectReference: {fileID: 0}
-    - target: {fileID: 6250972074332605949, guid: ead5c0d0c121577449d4ff337493e192, type: 3}
-      propertyPath: targetPosition
-      value: 
-      objectReference: {fileID: 1539350045}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ead5c0d0c121577449d4ff337493e192, type: 3}

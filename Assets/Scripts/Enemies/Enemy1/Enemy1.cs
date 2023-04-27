@@ -18,7 +18,7 @@ public class Enemy1 : Entity
         
         IdleState = new E1_IdleState(this, StateMachine, idleStateData, this, "idle");
         MoveToTargetState =  new E1_MoveToTargetState(this, StateMachine, moveToTargetData, this, "moveToTarget");
-        DeadState = new E1_DeadState(this, StateMachine, "dead");
+        DeadState = new E1_DeadState(this, StateMachine, this, "dead");
         
         StateMachine.Intitialize(IdleState);
     }

@@ -34,11 +34,6 @@ public class IdleState : EnemyState
         SetRandomTime();
     }
 
-    public override void Exit()
-    {
-        base.Exit();
-    }
-
     private void SetRandomTime()
     {
         IdleTime = Random.Range(StateData.minIdleTime, StateData.maxIdleTime);

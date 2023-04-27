@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 6250972074332605937}
   - component: {fileID: 6250972074332605942}
   - component: {fileID: 6250972074332605943}
-  - component: {fileID: 6250972074332605949}
   - component: {fileID: 6250972074332605938}
   - component: {fileID: 6250972074332605939}
   - component: {fileID: 6250972074332605948}
@@ -125,21 +124,7 @@ MonoBehaviour:
   entityData: {fileID: 11400000, guid: 90473319b5da7ae4abfe3016ff2ba2ff, type: 2}
   currentHealth: 0
   idleStateData: {fileID: 11400000, guid: 6355151cdcf807846b9b3be05c6ad3f2, type: 2}
-  moveToTargetData: {fileID: 6250972074332605949}
---- !u!114 &6250972074332605949
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6250972074332605940}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65f6b7923b438ef45974d7a7b68b1ed6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 1
-  targetPosition: {fileID: 0}
+  moveToTargetData: {fileID: 11400000, guid: a66d4b9e72917464e86b317ba360c4fa, type: 2}
 --- !u!70 &6250972074332605938
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

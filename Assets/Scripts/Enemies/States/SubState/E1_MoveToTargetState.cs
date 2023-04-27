@@ -15,7 +15,7 @@ public class E1_MoveToTargetState : MoveToTargetState
     {
         base.LogicUpdate();
 
-        if (enemy1.transform.position.Equals(MoveToTargetData.targetPosition))
+        if (enemy1.transform.position.Equals(target))
         {
             // attack state
         }

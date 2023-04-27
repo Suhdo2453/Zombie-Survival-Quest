@@ -5,14 +5,22 @@ using UnityEngine;
 public class MoveToTargetState : EnemyState
 {
     protected D_MoveToTarget MoveToTargetData;
+    protected Transform target;
 
     private Vector3 currentPosition;
     private Vector3 moveDirection;
 
-    public MoveToTargetState(Entity entity, EnemyStateMachine stateMachine, D_MoveToTarget moveToTargetData,
+    protected MoveToTargetState(Entity entity, EnemyStateMachine stateMachine, D_MoveToTarget moveToTargetData,
         string animBoolName) : base(entity, stateMachine, animBoolName)
     {
         MoveToTargetData = moveToTargetData;
+    }
+
+    public override void Enter()
+    {
+        base.Enter();
+
+        target = Object.FindObjectOfType<Player>().transform;
     }
 
     public override void LogicUpdate()
@@ -33,12 +41,19 @@ public class MoveToTargetState : EnemyState
         MoveToTarget();
     }
 
+    public override void Enable()
+    {
+        base.Enable();
+        
+        target = Object.FindObjectOfType<Player>().transform;
+    }
+
     private void MoveToTarget()
     {
-        if (!MoveToTargetData.targetPosition) return;
+        if (!target) return;
 
         currentPosition = Entity.transform.position;
-        moveDirection = (MoveToTargetData.targetPosition.position - currentPosition).normalized;
+        moveDirection = (target.position - currentPosition).normalized;
 
         Vector3 velocity = moveDirection * (MoveToTargetData.moveSpeed * Time.fixedDeltaTime);
         Vector3 newPosition = currentPosition + velocity;

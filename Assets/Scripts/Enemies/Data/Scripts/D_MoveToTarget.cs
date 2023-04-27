@@ -1,9 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class D_MoveToTarget : MonoBehaviour
+[CreateAssetMenu(fileName ="newMoveToTargetData", menuName ="Data/State Data/Move To Target Data")]
+public class D_MoveToTarget : ScriptableObject
 {
     public float moveSpeed = 3f;
-    public Transform targetPosition;
 }

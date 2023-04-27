@@ -38,4 +38,9 @@ public class EnemyState
     {
         Entity.Anim.SetBool(AnimBoolName, false);
     }
+
+    public virtual void Enable()
+    {
+        
+    }
 }

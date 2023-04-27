@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Ultilites;
 using Unity.VisualScripting.Dependencies.NCalc;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -10,6 +11,7 @@ public class Weapon_gun_01 : MonoBehaviour
     [SerializeField] private Transform firePoint;
     [SerializeField] private float fireForce;
     [SerializeField] private float fireRate;
+    [SerializeField] private GameObject bulletPref;
 
     private float _fireRate;
 
@@ -47,7 +49,7 @@ public class Weapon_gun_01 : MonoBehaviour
         if (player.InputHandler.AttackInput && _fireRate <= 0)
         {
             _fireRate = fireRate;
-            GameObject projectile = ObjectPooler.current.GetPooledObject();
+            GameObject projectile = ObjectPooler.Instance.GetPooledObject(bulletPref);
             if (projectile == null) return;
 
             projectile.transform.position = firePoint.position;

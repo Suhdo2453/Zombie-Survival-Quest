@@ -1,11 +1,13 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Ultilites;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
     private Rigidbody2D rb;
+
     private void OnEnable()
     {
         Invoke(nameof(Disable), 2f);
@@ -18,7 +20,7 @@ public class Bullet : MonoBehaviour
 
     private void Disable()
     {
-        gameObject.SetActive(false);
+        ObjectPooler.Instance.CoolObject(gameObject);
     }
 
     private void OnDisable()
@@ -32,6 +34,7 @@ public class Bullet : MonoBehaviour
         {
             entityComponent.Damage(12f);
         }
-        gameObject.SetActive(false);
+
+        Disable();
     }
 }

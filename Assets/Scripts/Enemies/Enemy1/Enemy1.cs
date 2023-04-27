@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Enemies.States.SubState;
+using Ultilites;
 using UnityEngine;
 
 public class Enemy1 : Entity
@@ -29,6 +30,7 @@ public class Enemy1 : Entity
         if (isDead)
         {
             StateMachine.ChangeState(DeadState);
+            ObjectPooler.Instance.CoolObject(gameObject);
         }
     }
 }

@@ -1,50 +1,81 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjectPooler : MonoBehaviour
+namespace Ultilites
 {
-    public static ObjectPooler current;
-    public GameObject poolObject;
-    public int pooledAmount;
-    public bool willGrow;
-
-    private List<GameObject> pooledObjects;
-
-    private void Awake()
+    [Serializable]
+    public class PoolInfo
     {
-        current = this;
+        public int amount;
+        public GameObject prefab;
+        public GameObject container;
+    
+        public List<GameObject> pool = new List<GameObject>();
     }
 
-    private void Start()
+    public class ObjectPooler : Singleton<ObjectPooler>
     {
-        pooledObjects = new List<GameObject>();
-        for (int i = 0; i < pooledAmount; i++)
-        {
-            GameObject obj = Instantiate(poolObject);
-            obj.SetActive(false);
-            pooledObjects.Add(obj);
-        }
-    }
+        [SerializeField]
+        private List<PoolInfo> listOfPool;
 
-    public GameObject GetPooledObject()
-    {
-        foreach (var t in pooledObjects)
+        private void Start()
         {
-            if (!t.activeInHierarchy)
+            for (int i = 0; i < listOfPool.Count; i++)
             {
-                return t;
+                FillPool(listOfPool[i]);
             }
         }
 
-        if (willGrow)
+        private void FillPool(PoolInfo info)
         {
-            GameObject obj = Instantiate(poolObject);
-            pooledObjects.Add(obj);
-            return obj;
+            for (int i = 0; i < info.amount; i++)
+            {
+                GameObject objInstance = Instantiate(info.prefab, info.container.transform);
+                objInstance.name = info.prefab.name;
+                objInstance.SetActive(false);
+                info.pool.Add(objInstance);
+            }
         }
 
-        return null;
+        public GameObject GetPooledObject(GameObject obj)
+        {
+            PoolInfo selected = GetPoolByType(obj);
+
+            GameObject objInstance;
+            if (selected.pool.Count > 0)
+            {
+                objInstance = selected.pool[^1];
+                selected.pool.Remove(objInstance);
+            }
+            else
+            {
+                objInstance = Instantiate(selected.prefab, selected.container.transform);
+                objInstance.name = selected.prefab.name;
+            }
+            return objInstance;
+        }
+
+        public void CoolObject(GameObject obj)
+        {
+            obj.SetActive(false);
+        
+            PoolInfo selected = GetPoolByType(obj);
+        
+            if(!selected.pool.Contains(obj))
+                selected.pool.Add(obj);
+        }
+
+        private PoolInfo GetPoolByType(GameObject obj)
+        {
+            foreach (var t in listOfPool)
+            {
+                if (obj.name == t.prefab.name)
+                    return t;
+            }
+
+            Debug.LogError("does not exist PoolObject's "+ obj.name+". Create it in ObjectPooler!");
+            return null;
+        }
     }
 }

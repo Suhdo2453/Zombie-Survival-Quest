@@ -1,0 +1,50 @@
+.btn-main-menu {
+    height: 69px;
+    width: 318px;
+    font-size: 40px;
+    -unity-font-definition: url('project://database/Assets/Sprites/Fonts/bitByBit_%20[font]%20SDF%201.asset?fileID=11400000&guid=b37999eff9fa8134992997aa26b1e893&type=2#bitByBit_ [font] SDF 1');
+    background-color: rgba(88, 88, 88, 0);
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
+    -unity-font: url('project://database/Assets/Sprites/Fonts/bitByBit_%20[font].ttf?fileID=12800000&guid=e109861cce604c240868fa1c3454430f&type=3#bitByBit_ [font]');
+    -unity-text-align: middle-left;
+    margin-left: 0;
+    margin-bottom: 24px;
+    color: rgba(210, 210, 210, 255);
+}
+
+.btn-main-menu:hover {
+    height: 69px;
+    width: 318px;
+    font-size: 40px;
+    -unity-font-definition: url('project://database/Assets/Sprites/Fonts/bitByBit_%20[font]%20SDF%201.asset?fileID=11400000&guid=b37999eff9fa8134992997aa26b1e893&type=2#bitByBit_ [font] SDF 1');
+    background-color: rgba(88, 88, 88, 0);
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
+    -unity-font: url('project://database/Assets/Sprites/Fonts/bitByBit_%20[font].ttf?fileID=12800000&guid=e109861cce604c240868fa1c3454430f&type=3#bitByBit_ [font]');
+    -unity-text-align: middle-left;
+    margin-left: 0;
+    margin-bottom: 24px;
+    color: rgba(0, 0, 0, 255);
+}
+
+.btn-main-menu:active {
+    height: 69px;
+    width: 318px;
+    font-size: 30px;
+    -unity-font-definition: url('project://database/Assets/Sprites/Fonts/bitByBit_%20[font]%20SDF%201.asset?fileID=11400000&guid=b37999eff9fa8134992997aa26b1e893&type=2#bitByBit_ [font] SDF 1');
+    background-color: rgba(88, 88, 88, 0);
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
+    -unity-font: url('project://database/Assets/Sprites/Fonts/bitByBit_%20[font].ttf?fileID=12800000&guid=e109861cce604c240868fa1c3454430f&type=3#bitByBit_ [font]');
+    -unity-text-align: middle-left;
+    margin-left: 0;
+    margin-bottom: 24px;
+    color: rgb(0, 0, 0);
+}

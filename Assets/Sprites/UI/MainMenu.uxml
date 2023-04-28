@@ -1,0 +1,11 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Sprites/UI/Styles/BtnStyle.uss?fileID=7433441132597879392&amp;guid=7f0ac9dea4826364bbf8cfdadd3ce352&amp;type=3#BtnStyle" />
+    <ui:VisualElement name="background" style="flex-grow: 1; background-color: rgb(230, 154, 56);">
+        <ui:VisualElement name="left-side" style="align-items: flex-start; position: absolute; flex-shrink: 1; flex-direction: column; top: 0; left: 0; bottom: 0; right: auto; width: 811px; -unity-font-definition: url(&apos;project://database/Assets/Sprites/Fonts/bitByBit_%20[font]%20SDF%201.asset?fileID=11400000&amp;guid=b37999eff9fa8134992997aa26b1e893&amp;type=2#bitByBit_ [font] SDF 1&apos;); padding-left: 20px;">
+            <ui:Label text="ZOMBIE SUVIVAL QUEST" display-tooltip-when-elided="true" name="title" style="-unity-font: url(&apos;project://database/Assets/Sprites/Fonts/bitByBit_%20[font].ttf?fileID=12800000&amp;guid=e109861cce604c240868fa1c3454430f&amp;type=3#bitByBit_ [font]&apos;); font-size: 60px; flex-shrink: 1; flex-grow: 0; height: 50%; width: 100%; -unity-text-align: middle-left; -unity-font-definition: url(&apos;project://database/Assets/Sprites/Fonts/bitByBit_%20[font]%20SDF%201.asset?fileID=11400000&amp;guid=b37999eff9fa8134992997aa26b1e893&amp;type=2#bitByBit_ [font] SDF 1&apos;); -unity-font-style: normal; -unity-text-outline-width: 0; -unity-text-outline-color: rgb(0, 0, 0); text-shadow: 0 0 0 rgb(0, 0, 0); white-space: normal; margin-bottom: 0; color: rgba(210, 210, 210, 255);" />
+            <ui:Button text="START" display-tooltip-when-elided="true" name="btn-start" class="btn-main-menu" style="-unity-text-align: middle-left;" />
+            <ui:Button text="SETTING" display-tooltip-when-elided="true" name="btn-setting" class="btn-main-menu" />
+            <ui:Button text="QUIT" display-tooltip-when-elided="true" name="btn-quit" class="btn-main-menu" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

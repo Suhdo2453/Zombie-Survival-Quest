@@ -1,0 +1,13 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/Styles/LabelStyle.uss?fileID=7433441132597879392&amp;guid=4a13fe5f21673f243bc251d0996f92ab&amp;type=3#LabelStyle" />
+    <ui:VisualElement name="background" style="flex-grow: 1; background-color: rgb(230, 154, 56);">
+        <ui:VisualElement name="left-side" style="align-items: flex-start; position: absolute; flex-shrink: 1; flex-direction: column; top: 0; left: 0; bottom: 0; right: auto; width: 811px; -unity-font-definition: url(&apos;project://database/Assets/Sprites/Fonts/bitByBit_%20[font]%20SDF%201.asset?fileID=11400000&amp;guid=b37999eff9fa8134992997aa26b1e893&amp;type=2#bitByBit_ [font] SDF 1&apos;); padding-left: 20px; flex-wrap: wrap; justify-content: flex-start; padding-top: 60px;">
+            <ui:Label text="ZOMBIE SUVIVAL QUEST" display-tooltip-when-elided="true" name="title" class="title" />
+            <ui:VisualElement style="flex-grow: 0; width: auto; align-items: stretch; justify-content: center; max-width: none; max-height: none; min-height: auto; height: initial; margin-top: 90px;">
+                <ui:Button text="START" display-tooltip-when-elided="true" name="btn-start" class="btn-main-menu" />
+                <ui:Button text="SETTING" display-tooltip-when-elided="true" name="btn-setting" class="btn-main-menu" />
+                <ui:Button text="QUIT" display-tooltip-when-elided="true" name="btn-quit" class="btn-main-menu" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

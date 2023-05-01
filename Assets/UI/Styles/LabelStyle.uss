@@ -1,0 +1,11 @@
+.title {
+    -unity-font: url('project://database/Assets/Sprites/Fonts/bitByBit_%20[font].ttf?fileID=12800000&guid=e109861cce604c240868fa1c3454430f&type=3#bitByBit_ [font]');
+    font-size: 60px;
+    height: auto;
+    width: 100%;
+    -unity-text-align: middle-left;
+    -unity-font-definition: url('project://database/Assets/Sprites/Fonts/bitByBit_%20[font]%20SDF%201.asset?fileID=11400000&guid=b37999eff9fa8134992997aa26b1e893&type=2#bitByBit_ [font] SDF 1');
+    -unity-font-style: normal;
+    white-space: normal;
+    color: rgb(210, 210, 210);
+}

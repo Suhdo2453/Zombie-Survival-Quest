@@ -1,0 +1,7 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/Styles/LabelStyle.uss?fileID=7433441132597879392&amp;guid=4a13fe5f21673f243bc251d0996f92ab&amp;type=3#LabelStyle" />
+    <ui:VisualElement style="flex-grow: 1; background-color: rgb(230, 154, 56); height: 485px; width: 795px; padding-left: 20px; padding-right: 20px; padding-top: 20px; padding-bottom: 20px;">
+        <ui:Label text="SETTING" display-tooltip-when-elided="true" class="title" style="font-size: 40px;" />
+        <ui:Slider picking-mode="Ignore" label="Slider" value="42" high-value="100" direction="Horizontal" />
+    </ui:VisualElement>
+</ui:UXML>

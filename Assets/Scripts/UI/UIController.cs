@@ -10,6 +10,7 @@ public class UIController : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
 
     private void Start()
     {
+        textMeshPro = GetComponentInChildren<TextMeshProUGUI>();
         initialFontSize = textMeshPro.fontSize;
     }
 

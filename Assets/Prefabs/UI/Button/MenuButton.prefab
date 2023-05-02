@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4445415525508199270}
   - component: {fileID: 4445415525508199271}
   - component: {fileID: 4445415525508199268}
-  - component: {fileID: 4445415525508199269}
+  - component: {fileID: -545349886593014009}
   m_Layer: 5
   m_Name: MenuButton
   m_TagString: Untagged
@@ -147,7 +147,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &4445415525508199269
+--- !u!114 &-545349886593014009
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -159,7 +159,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eda78f566ad5bbc4984f2de9292b81b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textMeshPro: {fileID: 4445415526011325156}
+  textMeshPro: {fileID: 0}
 --- !u!1 &4445415526011325154
 GameObject:
   m_ObjectHideFlags: 0

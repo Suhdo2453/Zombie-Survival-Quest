@@ -12,7 +12,7 @@ public class StartMenu : MonoBehaviour
 
     public void OnClick_Start()
     {
-        SceneManager.LoadScene(1);
+        
     }
 
     public void SetActive()

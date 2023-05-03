@@ -1,5 +1,6 @@
 public enum Menu
 {
     MAIN_MENU,
-    SETTINGS
+    SETTINGS,
+    PAUSE_MENU
 }

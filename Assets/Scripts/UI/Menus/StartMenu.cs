@@ -7,12 +7,7 @@ public class StartMenu : MonoBehaviour
 {
     public void OnClick_Settings()
     {
-        MenuManager.OpenMenu(Menu.SETTINGS, gameObject);
-    }
-
-    public void OnClick_Start()
-    {
-        
+        MenuManager.Instance.OpenMenu(Menu.SETTINGS, gameObject);
     }
 
     public void SetActive()

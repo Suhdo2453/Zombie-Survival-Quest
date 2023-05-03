@@ -1,37 +1,40 @@
 using System;
+using JetBrains.Annotations;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public static class MenuManager
+public class MenuManager : Ultilites.Singleton<MenuManager>
 {
-    public static bool IsInitialised { get; private set; }
-    public static GameObject mainMenu, settingsMenu;
-    public static Animator mainAnim, settingsAnim;
+    //public static bool IsInitialised { get; private set; }
+    [SerializeField]
+    public GameObject mainMenu, settingsMenu, pauseMenu;
     
-    public static void Init()
+    /*public void Init()
     {
-        GameObject canvas = GameObject.Find("Canvas");
-        mainMenu = canvas.transform.Find("StartMenuPanel").gameObject;
-        settingsMenu = canvas.transform.Find("SettingMenuPanel").gameObject;
-        mainAnim = mainMenu.GetComponent<Animator>();
-        settingsAnim = settingsMenu.GetComponent<Animator>();
         IsInitialised = true;
-    }
+    }*/
 
-    public static void OpenMenu(Menu menu, GameObject callingMenu)
+    public void OpenMenu(Menu menu, [CanBeNull] GameObject callingMenu)
     {
-        if(!IsInitialised) Init();
-        callingMenu.GetComponent<Animator>().SetTrigger("Close");
+        //if(!IsInitialised) Init();
+        callingMenu?.GetComponent<Animator>().SetTrigger("Close");
         switch (menu)
         {
             case Menu.MAIN_MENU:
                 mainMenu.SetActive(true);
-               // mainAnim.SetTrigger("Open");
                 break;
             case Menu.SETTINGS:
                 settingsMenu.SetActive(true);
-               // settingsAnim.SetTrigger("Open");
+                break;
+            case Menu.PAUSE_MENU:
+                pauseMenu.SetActive(true);
                 break;
         }
         
+    }
+
+    public void CloseMenu(GameObject callingMenu)
+    {
+        callingMenu.GetComponent<Animator>().SetTrigger("Close");
     }
 }

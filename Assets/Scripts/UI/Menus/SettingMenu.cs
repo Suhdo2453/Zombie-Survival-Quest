@@ -6,7 +6,7 @@ public class SettingMenu : MonoBehaviour
 {
     public void OnClick_Back()
     {
-        MenuManager.OpenMenu(Menu.MAIN_MENU, gameObject);
+        MenuManager.Instance.OpenMenu(Menu.MAIN_MENU, gameObject);
     }
     
     public void SetActive()

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,17 +9,23 @@ public class SceneLoader : MonoBehaviour
     public Animator transition;
     public float transitionTime = 1f;
     
-    public void LoadNextScene()
+    public void LoadPlayScene()
     {
         StartCoroutine(LoadScene(1));
+    }
+
+    public void LoadStartScene()
+    {
+        StartCoroutine(LoadScene(0));
     }
 
     private IEnumerator LoadScene(int sceneIndex)
     {
         transition.SetTrigger("Start");
 
-        yield return new WaitForSeconds(transitionTime);
-        
+        yield return new WaitForSecondsRealtime(transitionTime);
+
+        Time.timeScale = 1;
         SceneManager.LoadScene(sceneIndex);
     }
 }

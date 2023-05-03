@@ -13,7 +13,7 @@ namespace Ultilites
             if (instance == null)
             {
                 instance = (T)this;
-                DontDestroyOnLoad(gameObject);
+                //DontDestroyOnLoad(gameObject);
             }
             else
             {

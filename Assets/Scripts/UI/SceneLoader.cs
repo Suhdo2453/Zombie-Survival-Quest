@@ -12,11 +12,13 @@ public class SceneLoader : MonoBehaviour
     public void LoadPlayScene()
     {
         StartCoroutine(LoadScene(1));
+        SoundManager.Instance.PlayMusic("PlayScene");
     }
 
     public void LoadStartScene()
     {
         StartCoroutine(LoadScene(0));
+        SoundManager.Instance.PlayMusic("MenuStart");
     }
 
     private IEnumerator LoadScene(int sceneIndex)

@@ -17,6 +17,7 @@ public class UIController : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
     public void OnPointerDown(PointerEventData eventData)
     {
         textMeshPro.fontSize -= 10;
+        SoundManager.Instance.PlaySFX("Click");        
     }
 
     public void OnPointerUp(PointerEventData eventData)

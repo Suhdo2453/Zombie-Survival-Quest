@@ -28,6 +28,7 @@ public class SceneLoader : MonoBehaviour
         yield return new WaitForSecondsRealtime(transitionTime);
 
         Time.timeScale = 1;
+        SoundManager.Instance.UnPauseMusic();
         SceneManager.LoadScene(sceneIndex);
     }
 }

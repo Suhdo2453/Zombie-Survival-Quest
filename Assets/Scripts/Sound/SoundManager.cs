@@ -10,6 +10,7 @@ public class SoundManager : Singleton<SoundManager>
     public List<Sound> musicSounds, sfxSounds;
     public AudioSource musicSource, sfxSource;
     public AudioMixer audioMixer;
+    public AudioMixerSnapshot pause, unPause;
 
     protected override void Awake()
     {
@@ -35,6 +36,16 @@ public class SoundManager : Singleton<SoundManager>
         {
             StartCoroutine( FadeOut(sound, 0.01f));
         }
+    }
+
+    public void PauseMusic()
+    {
+        pause.TransitionTo(0);
+    }
+
+    public void UnPauseMusic()
+    {
+        unPause.TransitionTo(0);
     }
 
     public void PlaySFX(string sfxName)

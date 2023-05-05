@@ -303,6 +303,8 @@ MonoBehaviour:
   musicSource: {fileID: 1572536025}
   sfxSource: {fileID: 890530556}
   audioMixer: {fileID: 24100000, guid: 05c0f7768b275c340a0b4e66df1b93da, type: 2}
+  pause: {fileID: -5682377667020065400, guid: 05c0f7768b275c340a0b4e66df1b93da, type: 2}
+  unPause: {fileID: -7518573467155463492, guid: 05c0f7768b275c340a0b4e66df1b93da, type: 2}
 --- !u!4 &466713884
 Transform:
   m_ObjectHideFlags: 0

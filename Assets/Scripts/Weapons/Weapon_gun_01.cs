@@ -12,6 +12,7 @@ public class Weapon_gun_01 : MonoBehaviour
     [SerializeField] private float fireForce;
     [SerializeField] private float fireRate;
     [SerializeField] private GameObject bulletPref;
+    [SerializeField] private Sound sound;
 
     private float _fireRate;
 
@@ -24,6 +25,7 @@ public class Weapon_gun_01 : MonoBehaviour
     {
         _fireRate = fireRate;
         player = GetComponentInParent<Player>();
+        SoundManager.Instance.sfxSounds.Add(sound);
     }
 
     private void FixedUpdate()
@@ -56,6 +58,8 @@ public class Weapon_gun_01 : MonoBehaviour
             projectile.transform.rotation = firePoint.rotation;
             projectile.SetActive(true);
             projectile.GetComponent<Rigidbody2D>().AddForce(firePoint.right * fireForce, ForceMode2D.Impulse);
+            
+            SoundManager.Instance.PlaySFX("GunSound");
         }
     }
 }

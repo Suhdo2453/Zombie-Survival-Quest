@@ -21,9 +21,6 @@ public class SoundManager : Singleton<SoundManager>
     private void Start()
     {
         LoadSoundVolume();
-        musicSource.clip = musicSounds.Find(x => x.name == "MenuStart").audioClip;
-        musicSource.Play();
-        StartCoroutine(FadeIn(0.01f));
     }
 
     public void PlayMusic(string musicName)
@@ -36,7 +33,23 @@ public class SoundManager : Singleton<SoundManager>
         }
         else
         {
-            StartCoroutine( FadeOut(sound, 0.01f));
+           
+        }
+    }
+
+    public void PlayDefaultMusic(string name)
+    {
+        Sound sound = musicSounds.Find(x => x.name == name);
+        
+        if (sound == null)
+        {
+            Debug.Log("Sound not found");
+        }
+        else
+        {
+            musicSource.clip = sound.audioClip;
+            musicSource.Play();
+            StartCoroutine(FadeIn(0.01f));
         }
     }
 
@@ -77,28 +90,24 @@ public class SoundManager : Singleton<SoundManager>
         PlayerPrefs.SetFloat("sfxVolume", volume);
     }
 
-    private IEnumerator FadeOut(Sound newSound, float speed)
+    public void FadeOut()
     {
         float audioVolume = musicSource.volume;
-        Debug.Log("FadeOut");
 
         while (musicSource.volume > 0)
         {
-            audioVolume -= speed;
+            audioVolume -= 0.01f;
             musicSource.volume = audioVolume;
-            yield return null;
         }
-        musicSource.clip = newSound.audioClip;
-        musicSource.Play();
-        StartCoroutine(FadeIn(0.01f));
+        // musicSource.clip = newSound.audioClip;
+        // musicSource.Play();
+        // StartCoroutine(FadeIn(0.01f));
     }
 
     private IEnumerator FadeIn(float speed)
     {
         musicSource.volume = 0;
         float audioVolume = musicSource.volume;
-        Debug.Log("FadeIn");
-
 
         while (musicSource.volume < 1)
         {

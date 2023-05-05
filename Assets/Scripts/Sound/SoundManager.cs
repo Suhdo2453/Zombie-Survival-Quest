@@ -21,7 +21,9 @@ public class SoundManager : Singleton<SoundManager>
     private void Start()
     {
         LoadSoundVolume();
-        PlayMusic("MenuStart");
+        musicSource.clip = musicSounds.Find(x => x.name == "MenuStart").audioClip;
+        musicSource.Play();
+        StartCoroutine(FadeIn(0.01f));
     }
 
     public void PlayMusic(string musicName)

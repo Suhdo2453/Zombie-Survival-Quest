@@ -51,7 +51,8 @@ public class Weapon_gun_01 : MonoBehaviour
         if (player.InputHandler.AttackInput && _fireRate <= 0)
         {
             SoundManager.Instance.PlaySFX("GunSound");
-
+            CinemachineShake.Instance.ShakeCamera(1.3f, 0.1f);
+            
             _fireRate = fireRate;
             GameObject projectile = ObjectPooler.Instance.GetPooledObject(bulletPref);
             if (projectile == null) return;
@@ -60,7 +61,6 @@ public class Weapon_gun_01 : MonoBehaviour
             projectile.transform.rotation = firePoint.rotation;
             projectile.SetActive(true);
             projectile.GetComponent<Rigidbody2D>().AddForce(firePoint.right * fireForce, ForceMode2D.Impulse);
-            
         }
     }
 }

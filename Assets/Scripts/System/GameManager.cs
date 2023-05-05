@@ -41,7 +41,7 @@ namespace System
         
         public void PauseGame()
         {
-            Time.timeScale = 0f;
+            Time.timeScale = 0;
         }
 
         public void ResumeGame()

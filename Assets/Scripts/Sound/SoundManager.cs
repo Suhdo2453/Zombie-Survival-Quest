@@ -78,12 +78,13 @@ public class SoundManager : Singleton<SoundManager>
     private IEnumerator FadeOut(Sound newSound, float speed)
     {
         float audioVolume = musicSource.volume;
+        Debug.Log("FadeOut");
 
         while (musicSource.volume > 0)
         {
             audioVolume -= speed;
             musicSource.volume = audioVolume;
-            yield return new WaitForSeconds(0.01f);
+            yield return null;
         }
         musicSource.clip = newSound.audioClip;
         musicSource.Play();
@@ -94,12 +95,14 @@ public class SoundManager : Singleton<SoundManager>
     {
         musicSource.volume = 0;
         float audioVolume = musicSource.volume;
+        Debug.Log("FadeIn");
+
 
         while (musicSource.volume < 1)
         {
             audioVolume += speed;
             musicSource.volume = audioVolume;
-            yield return new WaitForSeconds(0.01f);
+            yield return null;
         }
     }
 

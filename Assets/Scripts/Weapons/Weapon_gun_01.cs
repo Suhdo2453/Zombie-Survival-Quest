@@ -46,7 +46,7 @@ public class Weapon_gun_01 : MonoBehaviour
     }
 
     // ReSharper disable Unity.PerformanceAnalysis
-    public void Fire()
+    private void Fire()
     {
         if (player.InputHandler.AttackInput && _fireRate <= 0)
         {

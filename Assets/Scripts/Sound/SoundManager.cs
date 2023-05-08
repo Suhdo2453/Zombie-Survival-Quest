@@ -10,6 +10,7 @@ public class SoundManager : Singleton<SoundManager>
     public List<Sound> musicSounds, sfxSounds;
     public AudioSource musicSource, sfxSource;
     public AudioMixer audioMixer;
+    public AudioMixerSnapshot pause, unPause;
 
     protected override void Awake()
     {
@@ -20,7 +21,6 @@ public class SoundManager : Singleton<SoundManager>
     private void Start()
     {
         LoadSoundVolume();
-        PlayMusic("MenuStart");
     }
 
     public void PlayMusic(string musicName)
@@ -33,8 +33,34 @@ public class SoundManager : Singleton<SoundManager>
         }
         else
         {
-            StartCoroutine( FadeOut(sound, 0.01f));
+           
         }
+    }
+
+    public void PlayDefaultMusic(string name)
+    {
+        Sound sound = musicSounds.Find(x => x.name == name);
+        
+        if (sound == null)
+        {
+            Debug.Log("Sound not found");
+        }
+        else
+        {
+            musicSource.clip = sound.audioClip;
+            musicSource.Play();
+            StartCoroutine(FadeIn(0.01f));
+        }
+    }
+
+    public void PauseMusic()
+    {
+        pause.TransitionTo(0);
+    }
+
+    public void UnPauseMusic()
+    {
+        unPause.TransitionTo(0);
     }
 
     public void PlaySFX(string sfxName)
@@ -64,19 +90,18 @@ public class SoundManager : Singleton<SoundManager>
         PlayerPrefs.SetFloat("sfxVolume", volume);
     }
 
-    private IEnumerator FadeOut(Sound newSound, float speed)
+    public void FadeOut()
     {
         float audioVolume = musicSource.volume;
 
         while (musicSource.volume > 0)
         {
-            audioVolume -= speed;
+            audioVolume -= 0.01f;
             musicSource.volume = audioVolume;
-            yield return new WaitForSeconds(0.01f);
         }
-        musicSource.clip = newSound.audioClip;
-        musicSource.Play();
-        StartCoroutine(FadeIn(0.01f));
+        // musicSource.clip = newSound.audioClip;
+        // musicSource.Play();
+        // StartCoroutine(FadeIn(0.01f));
     }
 
     private IEnumerator FadeIn(float speed)
@@ -88,7 +113,7 @@ public class SoundManager : Singleton<SoundManager>
         {
             audioVolume += speed;
             musicSource.volume = audioVolume;
-            yield return new WaitForSeconds(0.01f);
+            yield return null;
         }
     }
 

@@ -33,8 +33,7 @@ public class Bullet : MonoBehaviour
         if (other.gameObject.TryGetComponent<Entity>(out Entity entityComponent))
         {
             entityComponent.Damage(12f);
+            Disable();
         }
-
-        Disable();
     }
 }

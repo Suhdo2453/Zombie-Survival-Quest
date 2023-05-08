@@ -12,12 +12,6 @@ namespace System
 
         private void Update()
         {
-            /*float t = Time.time - startTime;
-
-        int minutes = (int)t / 60;
-        int seconds = (int)t % 60;
-        
-        timerText.text = $"{minutes:00}:{seconds:00}";*/
             CountDown();
         }
 
@@ -41,7 +35,7 @@ namespace System
         
         public void PauseGame()
         {
-            Time.timeScale = 0f;
+            Time.timeScale = 0;
         }
 
         public void ResumeGame()

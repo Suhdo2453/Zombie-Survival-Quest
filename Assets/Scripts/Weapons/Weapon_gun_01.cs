@@ -58,6 +58,7 @@ public class Weapon_gun_01 : MonoBehaviour
             if (projectile == null) return;
 
             projectile.transform.position = firePoint.position;
+            projectile.GetComponent<TrailRenderer>().Clear();
             projectile.transform.rotation = firePoint.rotation;
             projectile.SetActive(true);
             projectile.GetComponent<Rigidbody2D>().AddForce(firePoint.right * fireForce, ForceMode2D.Impulse);

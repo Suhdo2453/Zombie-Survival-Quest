@@ -17,11 +17,14 @@ public class Entity : MonoBehaviour
     private Vector2 workspaceVector;
     [SerializeField]private float currentHealth;
 
+    private SpriteRenderer spriteRenderer;
+
     public virtual void Start()
     {
         FacingDirection = 1;
         RB = GetComponent<Rigidbody2D>();
         Anim =  GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         
         StateMachine = new EnemyStateMachine();
     }
@@ -52,6 +55,16 @@ public class Entity : MonoBehaviour
     public virtual void Damage(float damage)
     {
         currentHealth -= damage;
+
+        IEnumerator TakeDamageCor()
+        {
+            spriteRenderer.material.SetInt("_Hit", 1);
+            yield return new WaitForSeconds(0.1f);
+            spriteRenderer.material.SetInt("_Hit", 0);
+        }
+
+        if(gameObject.activeSelf) StartCoroutine(TakeDamageCor());
+        
         if (currentHealth <= 0)
         {
             isDead = true;

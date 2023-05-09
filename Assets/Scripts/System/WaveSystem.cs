@@ -40,6 +40,7 @@ public class WaveSystem : MonoBehaviour
             GameObject obj = ObjectPooler.Instance.GetPooledObject(randomEnemy);
             obj.SetActive(true);
             obj.transform.position = SpawnPos();
+            obj.transform.GetComponent<SpriteRenderer>().material.SetInt("_Hit", 0);
             nextSpawnTime = Time.time + currentWave.spawnInterval;
         }
     }

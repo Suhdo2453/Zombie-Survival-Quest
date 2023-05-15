@@ -1,6 +1,8 @@
+using System.Collections.Generic;
 using TMPro;
 using Ultilites;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace System
 {
@@ -42,5 +44,6 @@ namespace System
         {
             Time.timeScale = 1f;
         }
+
     }
 }

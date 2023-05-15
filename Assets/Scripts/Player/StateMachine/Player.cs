@@ -96,4 +96,9 @@ public class Player : MonoBehaviour
     {
         return num > 0 ? Mathf.CeilToInt(num) : Mathf.FloorToInt(num);
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        PlayerStats.Instance.DecreaseHealth();
+    }
 }

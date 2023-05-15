@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Ultilites;
 using UnityEngine;
 
 public class Entity : MonoBehaviour
@@ -16,6 +17,7 @@ public class Entity : MonoBehaviour
     
     private Vector2 workspaceVector;
     [SerializeField]private float currentHealth;
+    [SerializeField] private GameObject floatingText;
 
     private SpriteRenderer spriteRenderer;
 
@@ -55,6 +57,11 @@ public class Entity : MonoBehaviour
     public virtual void Damage(float damage)
     {
         currentHealth -= damage;
+        
+        GameObject _floatingText = ObjectPooler.Instance.GetPooledObject(floatingText);
+        _floatingText.SetActive(true);
+        _floatingText.GetComponentInChildren<TextMesh>().text = damage.ToString();
+        _floatingText.transform.position = new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z);
 
         IEnumerator TakeDamageCor()
         {

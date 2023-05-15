@@ -1,22 +1,26 @@
 using System;
+using System.Collections.Generic;
 using JetBrains.Annotations;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MenuManager : Ultilites.Singleton<MenuManager>
 {
-    //public static bool IsInitialised { get; private set; }
-    [SerializeField]
-    public GameObject mainMenu, settingsMenu, pauseMenu;
-    
-    /*public void Init()
+    [SerializeField] public GameObject mainMenu, settingsMenu, pauseMenu;
+    [SerializeField] private GameObject heart;
+    [SerializeField] private GameObject heartBar;
+
+    public List<Image> hearts;
+    private PlayerStats playerStats;
+
+    private void Start()
     {
-        IsInitialised = true;
-    }*/
+        LoadHeart();
+    }
 
     public void OpenMenu(Menu menu, [CanBeNull] GameObject callingMenu)
     {
-        //if(!IsInitialised) Init();
         callingMenu?.GetComponent<Animator>().SetTrigger("Close");
         switch (menu)
         {
@@ -30,11 +34,37 @@ public class MenuManager : Ultilites.Singleton<MenuManager>
                 pauseMenu.SetActive(true);
                 break;
         }
-        
     }
 
     public void CloseMenu(GameObject callingMenu)
     {
         callingMenu.GetComponent<Animator>().SetTrigger("Close");
+    }
+
+
+    private void LoadHeart()
+    {
+        playerStats = PlayerStats.Instance;
+        playerStats.DamageTaken += UpdateHearts;
+        for (int i = 0; i < playerStats.maxHealth; i++)
+        {
+            GameObject h = Instantiate(heart, heartBar.transform);
+            hearts.Add(h.transform.GetChild(0).GetComponent<Image>());
+        }
+        hearts.Reverse();
+    }
+
+    private void UpdateHearts()
+    {
+        foreach (Image i in hearts)
+        {
+            if (i.fillAmount > 0)
+            {
+                Debug.Log(i.fillAmount);
+                i.fillAmount = 0;
+                Debug.Log(i.fillAmount);
+                return;
+            }
+        }
     }
 }

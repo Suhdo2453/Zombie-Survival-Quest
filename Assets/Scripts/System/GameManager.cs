@@ -12,6 +12,11 @@ namespace System
         [SerializeField] private float countdownTime = 600f; // thời gian đếm ngược từ 10 phút
         public float currentTime => countdownTime; // thời gian hiện tại
 
+        private void Start()
+        {
+            MenuManager.Instance.LoadHeart();
+        }
+
         private void Update()
         {
             CountDown();

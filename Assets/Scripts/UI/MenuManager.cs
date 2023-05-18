@@ -5,17 +5,12 @@ using UnityEngine.UI;
 
 public class MenuManager : Ultilites.Singleton<MenuManager>
 {
-    [SerializeField] public GameObject mainMenu, settingsMenu, pauseMenu;
+    [SerializeField] public GameObject mainMenu, settingsMenu, pauseMenu, topLeftMenu, topRightMenu, endGameMenu;
     [SerializeField] private GameObject heart;
     [SerializeField] private GameObject heartBar;
 
     public List<Image> hearts;
     private PlayerStats playerStats;
-
-    private void Start()
-    {
-        LoadHeart();
-    }
 
     public void OpenMenu(Menu menu, [CanBeNull] GameObject callingMenu)
     {
@@ -31,16 +26,45 @@ public class MenuManager : Ultilites.Singleton<MenuManager>
             case Menu.PAUSE_MENU:
                 pauseMenu.SetActive(true);
                 break;
+            case Menu.TOPLEFT_MENU:
+                topLeftMenu.SetActive(true);
+                break;
+            case Menu.TOPRIGHT_MENU:
+                topRightMenu.SetActive(true);
+                break;
+            case Menu.END_MENU:
+                endGameMenu.SetActive(true);
+                break;
         }
     }
 
-    public void CloseMenu(GameObject callingMenu)
+    public void CloseMenu(Menu callingMenu)
     {
-        callingMenu.GetComponent<Animator>().SetTrigger("Close");
+        switch (callingMenu)
+        {
+            case Menu.MAIN_MENU:
+                mainMenu.GetComponent<Animator>().SetTrigger("Close");
+                break;
+            case Menu.SETTINGS:
+                settingsMenu.GetComponent<Animator>().SetTrigger("Close");
+                break;
+            case Menu.PAUSE_MENU:
+                pauseMenu.GetComponent<Animator>().SetTrigger("Close");
+                break;
+            case Menu.TOPLEFT_MENU:
+                topLeftMenu.GetComponent<Animator>().SetTrigger("Close");
+                break;
+            case Menu.TOPRIGHT_MENU:
+                topRightMenu.GetComponent<Animator>().SetTrigger("Close");
+                break;
+            case Menu.END_MENU:
+                endGameMenu.GetComponent<Animator>().SetTrigger("Close");
+                break;
+        }
     }
 
 
-    private void LoadHeart()
+    public void LoadHeart()
     {
         playerStats = PlayerStats.Instance;
         playerStats.DamageTaken += UpdateHearts;

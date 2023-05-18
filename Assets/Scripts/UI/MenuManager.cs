@@ -1,7 +1,5 @@
-using System;
 using System.Collections.Generic;
 using JetBrains.Annotations;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -60,9 +58,7 @@ public class MenuManager : Ultilites.Singleton<MenuManager>
         {
             if (i.fillAmount > 0)
             {
-                Debug.Log(i.fillAmount);
                 i.fillAmount = 0;
-                Debug.Log(i.fillAmount);
                 return;
             }
         }

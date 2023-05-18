@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class State
 {
@@ -43,6 +40,10 @@ public class State
     }
 
     public virtual void DoChecks()
+    {
+    }
+
+    public virtual void StateOnTriggerEnter(Collider2D other)
     {
     }
 }

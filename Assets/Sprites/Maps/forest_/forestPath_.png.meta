@@ -125,6 +125,18 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -517,24 +529,24 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      forestPath__14: 55556322
-      forestPath__2: -788375104
-      forestPath__12: 2094288534
-      forestPath__1: 60583114
-      forestPath__8: -2112618113
-      forestPath__6: 1162998706
-      forestPath__17: 1084613020
-      forestPath__15: -292795148
-      forestPath__7: 278118417
-      forestPath__3: -656565113
-      forestPath__16: 1236343791
-      forestPath__9: -84145959
       forestPath__0: -1901897647
+      forestPath__1: 60583114
+      forestPath__10: -2137252371
       forestPath__11: 1470841564
+      forestPath__12: 2094288534
+      forestPath__13: -1840266890
+      forestPath__14: 55556322
+      forestPath__15: -292795148
+      forestPath__16: 1236343791
+      forestPath__17: 1084613020
+      forestPath__2: -788375104
+      forestPath__3: -656565113
       forestPath__4: 770837118
       forestPath__5: -1521452592
-      forestPath__13: -1840266890
-      forestPath__10: -2137252371
+      forestPath__6: 1162998706
+      forestPath__7: 278118417
+      forestPath__8: -2112618113
+      forestPath__9: -84145959
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

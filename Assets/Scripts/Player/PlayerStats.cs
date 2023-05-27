@@ -31,7 +31,7 @@ public class PlayerStats : Singleton<PlayerStats>
 
     private void Die()
     {
-        MenuManager.Instance.OpenMenu(Menu.END_MENU, null);
+        MenuManager.Instance.OpenMenu(Menu.DIED_MENU, null);
         MenuManager.Instance.CloseMenu(Menu.TOPRIGHT_MENU);
         MenuManager.Instance.CloseMenu(Menu.TOPLEFT_MENU);
         GameManager.Instance.PauseGame();

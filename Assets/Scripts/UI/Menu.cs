@@ -5,5 +5,6 @@ public enum Menu
     PAUSE_MENU,
     TOPLEFT_MENU,
     TOPRIGHT_MENU,
-    END_MENU
+    DIED_MENU,
+    SURVIVAL_MENU
 }

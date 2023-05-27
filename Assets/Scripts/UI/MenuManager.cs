@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class MenuManager : Ultilites.Singleton<MenuManager>
 {
-    [SerializeField] public GameObject mainMenu, settingsMenu, pauseMenu, topLeftMenu, topRightMenu, endGameMenu;
+    [SerializeField] public GameObject mainMenu, settingsMenu, pauseMenu, topLeftMenu, topRightMenu, diedMenu, survivalMenu;
     [SerializeField] private GameObject heart;
     [SerializeField] private GameObject heartBar;
 
@@ -32,8 +32,11 @@ public class MenuManager : Ultilites.Singleton<MenuManager>
             case Menu.TOPRIGHT_MENU:
                 topRightMenu.SetActive(true);
                 break;
-            case Menu.END_MENU:
-                endGameMenu.SetActive(true);
+            case Menu.DIED_MENU:
+                diedMenu.SetActive(true);
+                break;
+            case Menu.SURVIVAL_MENU:
+                survivalMenu.SetActive(true);
                 break;
         }
     }
@@ -57,8 +60,11 @@ public class MenuManager : Ultilites.Singleton<MenuManager>
             case Menu.TOPRIGHT_MENU:
                 topRightMenu.GetComponent<Animator>().SetTrigger("Close");
                 break;
-            case Menu.END_MENU:
-                endGameMenu.GetComponent<Animator>().SetTrigger("Close");
+            case Menu.DIED_MENU:
+                diedMenu.GetComponent<Animator>().SetTrigger("Close");
+                break;
+            case Menu.SURVIVAL_MENU:
+                survivalMenu.GetComponent<Animator>().SetTrigger("Close");
                 break;
         }
     }

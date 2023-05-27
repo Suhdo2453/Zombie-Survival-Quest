@@ -37,6 +37,10 @@ namespace System
             {
                 Debug.Log("Time's up!");
                 // xử lý logic khi thời gian kết thúc
+                MenuManager.Instance.OpenMenu(Menu.SURVIVAL_MENU, null);
+                MenuManager.Instance.CloseMenu(Menu.TOPRIGHT_MENU);
+                MenuManager.Instance.CloseMenu(Menu.TOPLEFT_MENU);
+                PauseGame();
             }
         }
         

@@ -2,5 +2,9 @@ public enum Menu
 {
     MAIN_MENU,
     SETTINGS,
-    PAUSE_MENU
+    PAUSE_MENU,
+    TOPLEFT_MENU,
+    TOPRIGHT_MENU,
+    DIED_MENU,
+    SURVIVAL_MENU
 }

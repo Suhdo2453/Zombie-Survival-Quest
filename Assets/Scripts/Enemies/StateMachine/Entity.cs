@@ -1,6 +1,5 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
+using Ultilites;
 using UnityEngine;
 
 public class Entity : MonoBehaviour
@@ -16,12 +15,16 @@ public class Entity : MonoBehaviour
     
     private Vector2 workspaceVector;
     [SerializeField]private float currentHealth;
+    [SerializeField] private GameObject floatingText;
+
+    private SpriteRenderer spriteRenderer;
 
     public virtual void Start()
     {
         FacingDirection = 1;
         RB = GetComponent<Rigidbody2D>();
         Anim =  GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         
         StateMachine = new EnemyStateMachine();
     }
@@ -52,6 +55,21 @@ public class Entity : MonoBehaviour
     public virtual void Damage(float damage)
     {
         currentHealth -= damage;
+        
+        GameObject _floatingText = ObjectPooler.Instance.GetPooledObject(floatingText);
+        _floatingText.SetActive(true);
+        _floatingText.GetComponentInChildren<TextMesh>().text = damage.ToString();
+        _floatingText.transform.position = new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z);
+
+        IEnumerator TakeDamageCor()
+        {
+            spriteRenderer.material.SetInt("_Hit", 1);
+            yield return new WaitForSeconds(0.1f);
+            spriteRenderer.material.SetInt("_Hit", 0);
+        }
+
+        if(gameObject.activeSelf) StartCoroutine(TakeDamageCor());
+        
         if (currentHealth <= 0)
         {
             isDead = true;

@@ -1,6 +1,8 @@
+using System.Collections.Generic;
 using TMPro;
 using Ultilites;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace System
 {
@@ -9,6 +11,11 @@ namespace System
         [SerializeField] private TextMeshProUGUI timerText;
         [SerializeField] private float countdownTime = 600f; // thời gian đếm ngược từ 10 phút
         public float currentTime => countdownTime; // thời gian hiện tại
+
+        private void Start()
+        {
+            MenuManager.Instance.LoadHeart();
+        }
 
         private void Update()
         {
@@ -30,6 +37,10 @@ namespace System
             {
                 Debug.Log("Time's up!");
                 // xử lý logic khi thời gian kết thúc
+                MenuManager.Instance.OpenMenu(Menu.SURVIVAL_MENU, null);
+                MenuManager.Instance.CloseMenu(Menu.TOPRIGHT_MENU);
+                MenuManager.Instance.CloseMenu(Menu.TOPLEFT_MENU);
+                PauseGame();
             }
         }
         
@@ -42,5 +53,6 @@ namespace System
         {
             Time.timeScale = 1f;
         }
+
     }
 }

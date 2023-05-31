@@ -1,10 +1,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Ultilites;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class InputHandler : MonoBehaviour
+public class InputHandler : Singleton<InputHandler>
 {
     [SerializeField] private Camera scenceCamera;
     public Vector2 RawMovementInput { get; private set; }

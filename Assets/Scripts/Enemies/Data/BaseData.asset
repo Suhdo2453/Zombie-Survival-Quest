@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d103d6a8dcc1b7b42bf92eda9e385a45, type: 3}
   m_Name: BaseData
   m_EditorClassIdentifier: 
+  maxHealth: 50

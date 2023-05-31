@@ -1,7 +1,4 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Timeline;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -10,18 +7,23 @@ public class Player : MonoBehaviour
 
     public PlayerIdleState IdleState { get; private set; }
     public PlayerMoveState MoveState { get; private set; }
+    public PlayerKnockBackState KnockBackState {get; private set; }
 
     [SerializeField] private PlayerData PlayerData;
     [SerializeField] private Weapon_gun_01 weapon;
 
     public Rigidbody2D RB;
     public Animator Anim;
-    public InputHandler InputHandler { get; private set; }
+    //public InputHandler InputHandler { get; private set; }
 
     public Vector2 CurrentVelocity { get; private set; }
     public int FacingDirection { get; private set; }
 
-    private Vector2 workSpaceVector;
+    public Vector2 workSpaceVector;
+    
+    private SpriteRenderer spriteRenderer;
+    public bool isKnockBack { get; set; }
+
 
     private void Awake()
     {
@@ -29,14 +31,17 @@ public class Player : MonoBehaviour
 
         IdleState = new PlayerIdleState(this, StateMachine, PlayerData, "idleState");
         MoveState = new PlayerMoveState(this, StateMachine, PlayerData, "moveState");
+        KnockBackState = new PlayerKnockBackState(this, StateMachine, PlayerData, "knockBack");
     }
 
     private void Start()
     {
         Anim = GetComponent<Animator>();
-        InputHandler = GetComponent<InputHandler>();
+        //InputHandler = GetComponent<InputHandler>();
         RB = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         FacingDirection = 1;
+
 
         StateMachine.Initialize(IdleState);
     }
@@ -74,12 +79,12 @@ public class Player : MonoBehaviour
 
     public void FacingToMouse()
     {
-        if ((InputHandler.MousePosition.x < transform.position.x)&& FacingDirection==1)
+        if ((InputHandler.Instance.MousePosition.x < transform.position.x)&& FacingDirection==1)
         {
             // Lật player sang trái
             Flip();
         }
-        else if ((InputHandler.MousePosition.x > transform.position.x)&& FacingDirection==-1)
+        else if ((InputHandler.Instance.MousePosition.x > transform.position.x)&& FacingDirection==-1)
         {
             // Lật player sang phải
             Flip();
@@ -96,4 +101,25 @@ public class Player : MonoBehaviour
     {
         return num > 0 ? Mathf.CeilToInt(num) : Mathf.FloorToInt(num);
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        StateMachine.currentState.StateOnTriggerEnter(other);
+        if (!other.transform.CompareTag("Enemy") || isKnockBack) return;
+        
+        IEnumerator TakeDamageCor()
+        {
+            spriteRenderer.material.SetInt("_Hit", 1);
+            yield return new WaitForSeconds(0.1f);
+            spriteRenderer.material.SetInt("_Hit", 0);
+        }
+        
+        if(gameObject.activeSelf) StartCoroutine(TakeDamageCor());
+        
+        PlayerStats.Instance.DecreaseHealth();
+        
+        StateMachine.ChangeState(KnockBackState);
+    }
+    
+    
 }

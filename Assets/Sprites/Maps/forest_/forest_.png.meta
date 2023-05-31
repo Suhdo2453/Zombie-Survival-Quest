@@ -125,6 +125,18 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -2941,121 +2953,121 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      forest__67: 1002497121
-      forest__80: 209637575
-      forest__20: 1038247386
-      forest__97: -804647076
-      forest__71: -1541302351
-      forest__50: -1770391266
-      forest__28: -214326636
-      forest__60: 791800410
-      forest__107: -516594207
-      forest__93: -1642432368
-      forest__11: -445939436
-      forest__64: -1424684293
-      forest__6: 1883841644
-      forest__109: -918039561
-      forest__100: -232240299
-      forest__62: -152163071
-      forest__61: 276216493
-      forest__29: -3134008
-      forest__69: 1905984640
-      forest__73: 1136931459
-      forest__82: -2140886541
-      forest__86: 1435926568
-      forest__87: -1892335542
-      forest__111: 1597367657
-      forest__9: 1307845952
-      forest__23: -650443211
-      forest__25: 606215367
-      forest__76: -1519516698
-      forest__66: -760974616
-      forest__65: -371106827
-      forest__106: -329074589
-      forest__3: 310102482
-      forest__49: -729726295
-      forest__54: 407839073
-      forest__22: -1289916888
-      forest__33: -327159577
-      forest__102: -1136862265
-      forest__31: -635935404
-      forest__84: -1899706900
-      forest__95: 970478813
-      forest__89: 416547856
-      forest__4: 1576295998
-      forest__32: 1200546836
-      forest__47: -237981713
-      forest__55: -680742732
-      forest__37: 744913111
-      forest__112: 317329740
+      forest__0: 1179949517
+      forest__1: 399150312
       forest__10: 2020441096
-      forest__79: -1048174492
-      forest__52: 1390124297
-      forest__42: -250466871
-      forest__108: 1307681117
-      forest__44: 769342443
-      forest__83: -1923618816
-      forest__63: 107886508
-      forest__43: -1230234341
-      forest__7: 1897352465
-      forest__39: -2143225437
-      forest__74: -1338991248
-      forest__18: 1772100937
-      forest__13: 1530354361
-      forest__15: -882233126
-      forest__92: 1820206068
+      forest__100: -232240299
       forest__101: 1009677473
-      forest__5: 939282796
-      forest__27: -193813103
-      forest__34: 439237361
-      forest__114: -692801788
-      forest__26: 1253418647
-      forest__77: 1001296263
-      forest__46: -1326790000
-      forest__90: -2130339187
-      forest__94: -392259977
-      forest__70: -1547678585
-      forest__85: -660932212
-      forest__78: -1743206833
-      forest__98: -1347898992
-      forest__19: -1648817568
-      forest__110: 444283293
+      forest__102: -1136862265
       forest__103: -908624469
       forest__104: -1886761119
-      forest__8: -361193107
-      forest__96: -374257528
-      forest__56: 650495369
-      forest__72: -1238364626
-      forest__2: -866117316
-      forest__81: -206272165
-      forest__75: -695371223
-      forest__17: 271140540
-      forest__38: 132372251
-      forest__51: -471478556
-      forest__35: 461017421
-      forest__59: -330551209
-      forest__36: 1685247488
-      forest__68: 243904843
-      forest__1: 399150312
-      forest__16: 564170341
       forest__105: -49328067
-      forest__41: -1431607978
-      forest__88: -2030538622
-      forest__24: -1089462388
-      forest__45: -468685804
-      forest__14: 2019640060
-      forest__57: 1426244151
-      forest__53: -1974914522
-      forest__48: 747173127
+      forest__106: -329074589
+      forest__107: -516594207
+      forest__108: 1307681117
+      forest__109: -918039561
+      forest__11: -445939436
+      forest__110: 444283293
+      forest__111: 1597367657
+      forest__112: 317329740
       forest__113: -2112098408
-      forest__91: -868958844
+      forest__114: -692801788
       forest__12: -933917295
+      forest__13: 1530354361
+      forest__14: 2019640060
+      forest__15: -882233126
+      forest__16: 564170341
+      forest__17: 271140540
+      forest__18: 1772100937
+      forest__19: -1648817568
+      forest__2: -866117316
+      forest__20: 1038247386
       forest__21: 1328462126
+      forest__22: -1289916888
+      forest__23: -650443211
+      forest__24: -1089462388
+      forest__25: 606215367
+      forest__26: 1253418647
+      forest__27: -193813103
+      forest__28: -214326636
+      forest__29: -3134008
+      forest__3: 310102482
       forest__30: 1677645356
-      forest__58: -562903528
-      forest__99: 67172692
-      forest__0: 1179949517
+      forest__31: -635935404
+      forest__32: 1200546836
+      forest__33: -327159577
+      forest__34: 439237361
+      forest__35: 461017421
+      forest__36: 1685247488
+      forest__37: 744913111
+      forest__38: 132372251
+      forest__39: -2143225437
+      forest__4: 1576295998
       forest__40: -2085366979
+      forest__41: -1431607978
+      forest__42: -250466871
+      forest__43: -1230234341
+      forest__44: 769342443
+      forest__45: -468685804
+      forest__46: -1326790000
+      forest__47: -237981713
+      forest__48: 747173127
+      forest__49: -729726295
+      forest__5: 939282796
+      forest__50: -1770391266
+      forest__51: -471478556
+      forest__52: 1390124297
+      forest__53: -1974914522
+      forest__54: 407839073
+      forest__55: -680742732
+      forest__56: 650495369
+      forest__57: 1426244151
+      forest__58: -562903528
+      forest__59: -330551209
+      forest__6: 1883841644
+      forest__60: 791800410
+      forest__61: 276216493
+      forest__62: -152163071
+      forest__63: 107886508
+      forest__64: -1424684293
+      forest__65: -371106827
+      forest__66: -760974616
+      forest__67: 1002497121
+      forest__68: 243904843
+      forest__69: 1905984640
+      forest__7: 1897352465
+      forest__70: -1547678585
+      forest__71: -1541302351
+      forest__72: -1238364626
+      forest__73: 1136931459
+      forest__74: -1338991248
+      forest__75: -695371223
+      forest__76: -1519516698
+      forest__77: 1001296263
+      forest__78: -1743206833
+      forest__79: -1048174492
+      forest__8: -361193107
+      forest__80: 209637575
+      forest__81: -206272165
+      forest__82: -2140886541
+      forest__83: -1923618816
+      forest__84: -1899706900
+      forest__85: -660932212
+      forest__86: 1435926568
+      forest__87: -1892335542
+      forest__88: -2030538622
+      forest__89: 416547856
+      forest__9: 1307845952
+      forest__90: -2130339187
+      forest__91: -868958844
+      forest__92: 1820206068
+      forest__93: -1642432368
+      forest__94: -392259977
+      forest__95: 970478813
+      forest__96: -374257528
+      forest__97: -804647076
+      forest__98: -1347898992
+      forest__99: 67172692
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

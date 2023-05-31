@@ -1,0 +1,15 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+[CreateAssetMenu(fileName ="newEntityData", menuName ="Data/Weapon Data/Base Data")]
+public class D_Weapon : ScriptableObject
+{
+    public int quantityOfBullets;
+    public float fireRate;
+    
+    public float fireForce;
+    public GameObject bulletPref;
+    public Sound sound;
+}

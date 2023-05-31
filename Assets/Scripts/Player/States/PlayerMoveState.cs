@@ -10,8 +10,8 @@ public class PlayerMoveState : State
     {
         base.LogicUpdate();
         //player.CheckIfShouldFlip(player.InputHandler.RawMovementInput);
-        player.SetVelocity(playerData.movementSpeed * player.InputHandler.RawMovementInput);
-        if (player.InputHandler.RawMovementInput == Vector2.zero)
+        player.SetVelocity(playerData.movementSpeed * InputHandler.Instance.RawMovementInput);
+        if (InputHandler.Instance.RawMovementInput == Vector2.zero)
         {
             stateMachine.ChangeState(player.IdleState);
         }

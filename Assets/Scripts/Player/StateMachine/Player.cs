@@ -14,7 +14,7 @@ public class Player : MonoBehaviour
 
     public Rigidbody2D RB;
     public Animator Anim;
-    public InputHandler InputHandler { get; private set; }
+    //public InputHandler InputHandler { get; private set; }
 
     public Vector2 CurrentVelocity { get; private set; }
     public int FacingDirection { get; private set; }
@@ -37,7 +37,7 @@ public class Player : MonoBehaviour
     private void Start()
     {
         Anim = GetComponent<Animator>();
-        InputHandler = GetComponent<InputHandler>();
+        //InputHandler = GetComponent<InputHandler>();
         RB = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         FacingDirection = 1;
@@ -79,12 +79,12 @@ public class Player : MonoBehaviour
 
     public void FacingToMouse()
     {
-        if ((InputHandler.MousePosition.x < transform.position.x)&& FacingDirection==1)
+        if ((InputHandler.Instance.MousePosition.x < transform.position.x)&& FacingDirection==1)
         {
             // Lật player sang trái
             Flip();
         }
-        else if ((InputHandler.MousePosition.x > transform.position.x)&& FacingDirection==-1)
+        else if ((InputHandler.Instance.MousePosition.x > transform.position.x)&& FacingDirection==-1)
         {
             // Lật player sang phải
             Flip();

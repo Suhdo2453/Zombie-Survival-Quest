@@ -31,7 +31,7 @@ public class Weapon_gun_01 : MonoBehaviour
     private void FixedUpdate()
     {
         _fireRate -= Time.fixedDeltaTime;
-        mousePos = player.InputHandler.MousePosition;
+        mousePos = InputHandler.Instance.MousePosition;
         aimDir = mousePos - (Vector2)transform.position;
         aimAngle = Mathf.Atan2(aimDir.y, aimDir.x) * Mathf.Rad2Deg;
         Quaternion rotation = Quaternion.Euler(new Vector3(0, 0, aimAngle));
@@ -48,7 +48,7 @@ public class Weapon_gun_01 : MonoBehaviour
     // ReSharper disable Unity.PerformanceAnalysis
     private void Fire()
     {
-        if (player.InputHandler.AttackInput && _fireRate <= 0)
+        if (InputHandler.Instance.AttackInput && _fireRate <= 0)
         {
             SoundManager.Instance.PlaySFX("GunSound");
             CinemachineShake.Instance.ShakeCamera(1.3f, 0.1f);

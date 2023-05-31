@@ -11,6 +11,7 @@ public class InputHandler : Singleton<InputHandler>
     public Vector2 RawMovementInput { get; private set; }
     public Vector2 MousePosition { get; private set; }
     public Boolean AttackInput { get; private set; }
+    public Boolean ReloadInput { get; private set; }
 
     private void Update()
     {
@@ -32,6 +33,19 @@ public class InputHandler : Singleton<InputHandler>
         if (context.canceled)
         {
             AttackInput = false;
+        }
+    }
+
+    public void OnReloadInput(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            ReloadInput = true;
+        }
+
+        if (context.canceled)
+        {
+            ReloadInput = false;
         }
     }
 }

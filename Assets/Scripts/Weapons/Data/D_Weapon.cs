@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class D_Weapon : ScriptableObject
 {
     public int quantityOfBullets;
+    public float reloadTime;
     public float fireRate;
     
     public float fireForce;

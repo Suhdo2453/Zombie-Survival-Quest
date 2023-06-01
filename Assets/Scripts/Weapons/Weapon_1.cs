@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEditor;
 using UnityEngine;
 
@@ -16,6 +17,7 @@ public class Weapon_1 : Weapon
     private bool isReload;
     InputHandler _inputHandler;
     [SerializeField] private Transform firePoint;
+    [SerializeField] private TextMeshProUGUI bulletCounter;
 
 
     protected virtual void Awake()
@@ -50,6 +52,7 @@ public class Weapon_1 : Weapon
             StateMachine.ChangeState(FireState);
             _fireRate = weaponData.fireRate;
             _quantityOfBullets--;
+            bulletCounter.SetText(_quantityOfBullets.ToString());
 
             if (_quantityOfBullets <= 0)
             {
@@ -73,5 +76,6 @@ public class Weapon_1 : Weapon
     {
         isReload = false;
         _quantityOfBullets = weaponData.quantityOfBullets;
+        bulletCounter.SetText(_quantityOfBullets.ToString());
     }
 }

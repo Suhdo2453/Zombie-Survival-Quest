@@ -916,8 +916,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MovingObject: {fileID: 412708650}
   offset: {x: 0.3, y: -0.1}
-  BasicObject: {fileID: 0}
-  cam: {fileID: 519420031}
 --- !u!114 &412708652
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2643,6 +2641,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: ee4090dc-f987-4245-af06-400ea97cfca5
     m_ActionName: Gameplay/New action
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: c5b5edc8-e1ee-4a20-9790-b6b1768de559
+    m_ActionName: Gameplay/ReloadBullet[/Keyboard/r]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard
   m_DefaultActionMap: Gameplay

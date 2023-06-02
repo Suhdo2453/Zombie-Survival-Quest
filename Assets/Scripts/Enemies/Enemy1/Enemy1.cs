@@ -10,13 +10,14 @@ public class Enemy1 : Entity
 
     [SerializeField] private D_IdleState idleStateData;
     [SerializeField] private D_MoveToTarget moveToTargetData;
+    [SerializeField] private GameObject deadEffect;
     public override void Start()
     {
         base.Start();
         
         IdleState = new E1_IdleState(this, StateMachine, idleStateData, this, "idle");
         MoveToTargetState =  new E1_MoveToTargetState(this, StateMachine, moveToTargetData, this, "moveToTarget");
-        DeadState = new E1_DeadState(this, StateMachine, this, "dead");
+        DeadState = new E1_DeadState(deadEffect, this, StateMachine, this, "dead");
         
         StateMachine.Intitialize(IdleState);
     }

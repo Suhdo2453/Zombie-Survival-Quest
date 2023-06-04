@@ -63,7 +63,7 @@ public class SoundManager : Singleton<SoundManager>
         unPause.TransitionTo(0);
     }
 
-    public void PlaySFX(string sfxName)
+    public void PlaySFX(string sfxName, bool loop)
     {
         Sound sound = sfxSounds.Find(x => x.name == sfxName);
 
@@ -73,9 +73,15 @@ public class SoundManager : Singleton<SoundManager>
         }
         else
         {
+            sfxSource.loop = loop;
             sfxSource.clip = sound.audioClip;
             sfxSource.Play();
         }
+    }
+
+    public void StopSFX()
+    {
+        sfxSource.Stop();
     }
 
     public void MusicVolume(float volume)

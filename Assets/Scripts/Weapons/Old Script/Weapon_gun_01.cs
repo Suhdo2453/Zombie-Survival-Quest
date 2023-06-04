@@ -50,7 +50,7 @@ public class Weapon_gun_01 : MonoBehaviour
     {
         if (InputHandler.Instance.AttackInput && _fireRate <= 0)
         {
-            SoundManager.Instance.PlaySFX("GunSound");
+            SoundManager.Instance.PlaySFX("GunSound", false);
             CinemachineShake.Instance.ShakeCamera(1.3f, 0.1f);
             
             _fireRate = fireRate;

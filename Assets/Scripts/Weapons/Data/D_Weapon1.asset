@@ -17,6 +17,9 @@ MonoBehaviour:
   fireRate: 0.2
   fireForce: 20
   bulletPref: {fileID: 2627574719678001595, guid: 5702ae0f08b184b47a87bbd6b85e73d6, type: 3}
-  sound:
+  fireSound:
     name: GunSound
     audioClip: {fileID: 8300000, guid: dd5900afb78e5c741886dd03c6bfd5db, type: 3}
+  reloadSound:
+    name: ReloadSound
+    audioClip: {fileID: 8300000, guid: 2873739352f1ef346bddbef549be2365, type: 3}

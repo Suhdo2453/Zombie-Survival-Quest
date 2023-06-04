@@ -23,6 +23,7 @@ public class ReloadState : WeaponState
 
         // Lấy góc quay hiện tại của đối tượng
         currentRotation = weapon1.transform.rotation.eulerAngles;
+        SoundManager.Instance.PlaySFX("ReloadSound", true);
     }
 
     public override void LogicUpdate()
@@ -45,12 +46,14 @@ public class ReloadState : WeaponState
 
         // Gán lại góc quay mới vào component Transform
         weapon1.transform.rotation = Quaternion.Euler(currentRotation);
+
     }
 
     public override void Exit()
     {
         base.Exit();
         if (onExit != null) onExit();
+        SoundManager.Instance.StopSFX();
     }
 
     public delegate void OnExit();

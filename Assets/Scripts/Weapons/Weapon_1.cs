@@ -37,7 +37,8 @@ public class Weapon_1 : Weapon
 
         ReloadState.onExit += ResetBullets;
         StateMachine.Initialize(LookAtMouseState);
-        SoundManager.Instance.sfxSounds.Add(weaponData.sound);
+        SoundManager.Instance.sfxSounds.Add(weaponData.fireSound);
+        SoundManager.Instance.sfxSounds.Add(weaponData.reloadSound);
         _inputHandler = InputHandler.Instance;
         bulletCounter.SetText(_quantityOfBullets.ToString());
     }
@@ -50,16 +51,16 @@ public class Weapon_1 : Weapon
 
         if (_inputHandler.AttackInput && _fireRate <= 0 && !isReload)
         {
-            StateMachine.ChangeState(FireState);
+            if (_quantityOfBullets > 0) StateMachine.ChangeState(FireState);
             _fireRate = weaponData.fireRate;
             _quantityOfBullets--;
-            bulletCounter.SetText(_quantityOfBullets.ToString());
-
-            if (_quantityOfBullets <= 0)
+            bulletCounter.SetText(_quantityOfBullets >= 0 ? _quantityOfBullets.ToString() : "0");
+            if (_quantityOfBullets < 0)
             {
                 ChangeToReloadState();
             }
         }
+
 
         if (_inputHandler.ReloadInput && _quantityOfBullets < weaponData.quantityOfBullets && !isReload)
         {

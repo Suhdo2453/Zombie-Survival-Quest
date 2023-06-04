@@ -33,7 +33,7 @@ public class FireState : WeaponState
     private void Fire()
     {
         
-            SoundManager.Instance.PlaySFX("GunSound");
+            SoundManager.Instance.PlaySFX("GunSound", false);
             CinemachineShake.Instance.ShakeCamera(1.3f, 0.1f);
             
             GameObject projectile = ObjectPooler.Instance.GetPooledObject(weaponData.bulletPref);

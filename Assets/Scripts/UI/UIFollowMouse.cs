@@ -11,9 +11,8 @@ public class UIFollowMouse : MonoBehaviour
 
     private void Update()
     {
-        MoveObject();
+       MoveObject();
     }
-
     public void MoveObject()
     {
         Vector2 pos = InputHandler.Instance.MousePosition + offset;

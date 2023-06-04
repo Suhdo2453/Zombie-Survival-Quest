@@ -39,6 +39,7 @@ public class Weapon_1 : Weapon
         StateMachine.Initialize(LookAtMouseState);
         SoundManager.Instance.sfxSounds.Add(weaponData.sound);
         _inputHandler = InputHandler.Instance;
+        bulletCounter.SetText(_quantityOfBullets.ToString());
     }
 
     protected override void FixedUpdate()

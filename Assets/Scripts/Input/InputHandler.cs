@@ -14,7 +14,7 @@ public class InputHandler : Singleton<InputHandler>
     public Boolean ReloadInput { get; private set; }
 
     private void Update()
-    {
+    { 
         MousePosition = scenceCamera.ScreenToWorldPoint(Input.mousePosition);
     }
 

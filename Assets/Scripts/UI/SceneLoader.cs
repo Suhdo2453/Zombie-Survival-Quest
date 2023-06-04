@@ -8,7 +8,7 @@ public class SceneLoader : MonoBehaviour
 {
     public Animator transition;
     public float transitionTime = 1f;
-    
+
     private void Start()
     {
         switch (SceneManager.GetActiveScene().buildIndex)
@@ -21,7 +21,7 @@ public class SceneLoader : MonoBehaviour
                 break;
         }
     }
-    
+
     public void LoadPlayScene()
     {
         StartCoroutine(LoadScene(1));
@@ -32,6 +32,15 @@ public class SceneLoader : MonoBehaviour
     {
         StartCoroutine(LoadScene(0));
         SoundManager.Instance.PlayMusic("MenuStart");
+    }
+
+    public void ExitGame()
+    {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
     }
 
     private IEnumerator LoadScene(int sceneIndex)

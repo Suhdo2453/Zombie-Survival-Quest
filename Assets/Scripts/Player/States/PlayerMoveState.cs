@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMoveState : State
@@ -11,9 +9,9 @@ public class PlayerMoveState : State
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-        player.CheckIfShouldFlip(player.InputHandler.RawMovementInput);
-        player.SetVelocity(playerData.movementSpeed * player.InputHandler.RawMovementInput);
-        if (player.InputHandler.RawMovementInput == Vector2.zero)
+        //player.CheckIfShouldFlip(player.InputHandler.RawMovementInput);
+        player.SetVelocity(playerData.movementSpeed * InputHandler.Instance.RawMovementInput);
+        if (InputHandler.Instance.RawMovementInput == Vector2.zero)
         {
             stateMachine.ChangeState(player.IdleState);
         }

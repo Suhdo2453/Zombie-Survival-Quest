@@ -13,6 +13,7 @@ public class PauseMenu : MonoBehaviour
         MenuManager.Instance.CloseMenu(Menu.TOPRIGHT_MENU);
         GameManager.Instance.PauseGame();
         SoundManager.Instance.PauseMusic();
+        SoundManager.Instance.StopSFX();
         bulletCounter.SetActive(false);
     }
 

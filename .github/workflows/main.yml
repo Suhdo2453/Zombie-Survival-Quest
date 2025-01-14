@@ -12,8 +12,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        projectPath:
-          - test-project
+#        projectPath:
+#          - test-project
         testMode:
           - playmode
           - editmode

@@ -87,6 +87,15 @@ jobs:
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
         with:
           targetPlatform: ${{ matrix.targetPlatform }}
+
+        # Gửi thông báo tới Discord
+      - name: Notify Discord
+        if: success()
+        run: |
+          curl -H "Content-Type: application/json" \
+               -X POST \
+               -d '{"embeds": [{"title": "Build Success 🎉", "description": "Branch: `main`\n[View Details](https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID)", "color": 65280}]}' \
+                ${{ secrets.DISCORD_WEBHOOK_URL }}
       - uses: actions/upload-artifact@v4
         with:
           name: Build-${{ matrix.targetPlatform }}
